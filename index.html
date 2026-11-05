@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safa Optic - Site Officiel & Opticien VIP PREMIUM</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;700;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        tiffany: {
+                            DEFAULT: '#72D6C9',
+                            dark: '#4fbcaf',
+                            light: '#a3f0e6',
+                            soft: '#e6f9f7'
+                        },
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#f3e5ab'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'Alexandria', 'sans-serif'],
+                        arabic: ['Alexandria', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .font-arabic { font-family: 'Alexandria', sans-serif; }
+        .bg-pattern {
+            background-color: #f8fafc;
+            background-image: radial-gradient(#72D6C9 0.75px, transparent 0.75px);
+            background-size: 16px 16px;
+        }
+        .dark .bg-pattern {
+            background-color: #0f172a;
+            background-image: radial-gradient(#4fbcaf 0.75px, transparent 0.75px);
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-pattern text-slate-800 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-300 font-sans">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 glass border-b border-tiffany/20 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            
+            <!-- Logo & VIP PREMIUM Badge Left -->
+            <div class="flex flex-col items-center justify-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-full bg-tiffany/20 dark:bg-tiffany/30 flex items-center justify-center text-tiffany-dark dark:text-tiffany border border-tiffany/40">
+                        <i class="fa-solid fa-glasses text-xl"></i>
+                    </div>
+                    <span class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                        Safa <span class="text-tiffany-dark dark:text-tiffany">Optic</span>
+                    </span>
+                </div>
+                <!-- VIP PREMIUM Badge -->
+                <span class="mt-2 text-[10px] uppercase font-black bg-gradient-to-r from-amber-500 to-gold text-white px-3 py-0.5 rounded-full shadow-sm tracking-wider">
+                    VIP PREMIUM
+                </span>
+            </div>
+
+            <!-- Header Controls Right -->
+            <div class="flex items-center gap-2">
+                <!-- QR Codes Modal Trigger Button -->
+                <button onclick="openQrModal()" class="px-3 py-1.5 rounded-full border border-tiffany/30 bg-tiffany/10 text-xs font-bold text-tiffany-dark dark:text-tiffany hover:bg-tiffany/20 transition flex items-center gap-1.5 shadow-sm">
+                    <i class="fa-solid fa-qrcode text-sm"></i>
+                    <span id="qr-btn-text">QR Codes</span>
+                </button>
+
+                <!-- Language Toggle -->
+                <button onclick="toggleLanguage()" class="px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-800/80 text-xs font-bold text-slate-700 dark:text-slate-200 hover:border-tiffany transition flex items-center gap-1.5 shadow-sm">
+                    <i class="fa-solid fa-globe text-tiffany-dark dark:text-tiffany"></i>
+                    <span id="lang-btn-text">AR</span>
+                </button>
+
+                <!-- Dark Mode Toggle -->
+                <button onclick="toggleDarkMode()" class="p-2 rounded-full border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 hover:text-tiffany transition shadow-sm">
+                    <i id="theme-icon" class="fa-solid fa-moon text-base"></i>
+                </button>
+
+                <!-- Admin Access Button -->
+                <button onclick="openAdminModal()" class="p-2 rounded-full bg-slate-900 dark:bg-slate-800 text-gold hover:bg-slate-800 transition shadow-sm border border-gold/30">
+                    <i class="fa-solid fa-user-shield text-base"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-8 space-y-12">
+
+        <!-- Hero Section -->
+        <section class="relative rounded-3xl overflow-hidden p-8 md:p-12 text-center bg-gradient-to-br from-tiffany/10 via-white to-tiffany/20 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800/80 border border-tiffany/30 shadow-xl">
+            <div class="max-w-2xl mx-auto space-y-4">
+                <span id="welcome-badge" class="inline-block px-4 py-1 rounded-full text-xs font-semibold bg-tiffany/20 text-slate-800 dark:text-tiffany border border-tiffany/30">
+                    <i class="fa-solid fa-gem text-amber-500 mr-1"></i> Bienvenue chez Safa Optic
+                </span>
+                <h1 id="hero-title" class="text-2xl md:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight">
+                    Votre vision mérite l'excellence & le style VIP PREMIUM
+                </h1>
+                <p id="hero-subtitle" class="text-slate-600 dark:text-slate-300 text-sm md:text-base">
+                    Découvrez nos collections exclusives de lunettes de vue, solaires et lentilles de haute qualité avec un service personnalisé.
+                </p>
+                <div class="pt-2 flex justify-center gap-3">
+                    <a href="#appointment" class="bg-tiffany-dark hover:bg-tiffany text-white dark:text-slate-900 font-bold px-6 py-2.5 rounded-full shadow-lg hover:shadow-tiffany/40 transition text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-check"></i> <span id="btn-book-hero">Prendre Rendez-vous</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lens Selector Guide -->
+        <section class="bg-white dark:bg-slate-800/90 rounded-3xl p-6 border border-tiffany/20 shadow-md space-y-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-2xl bg-tiffany/20 flex items-center justify-center text-tiffany-dark dark:text-tiffany">
+                    <i class="fa-solid fa-wand-magic-sparkles text-lg"></i>
+                </div>
+                <div>
+                    <h3 id="lens-guide-title" class="font-bold text-slate-900 dark:text-white text-base">Guide de Choix des Verres</h3>
+                    <p id="lens-guide-sub" class="text-xs text-slate-500 dark:text-slate-400">Sélectionnez votre besoin pour trouver les verres idéaux :</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <button onclick="showLensRecommendation('blue')" class="p-3 rounded-2xl border border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 hover:border-tiffany text-left transition space-y-1">
+                    <span id="lens-opt1-title" class="font-bold text-xs text-slate-800 dark:text-slate-200 block">🖥️ Écrans & Ordinateur</span>
+                    <span id="lens-opt1-desc" class="text-[11px] text-slate-500 block">Anti-Lumière Bleue Premium</span>
+                </button>
+                <button onclick="showLensRecommendation('drive')" class="p-3 rounded-2xl border border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 hover:border-tiffany text-left transition space-y-1">
+                    <span id="lens-opt2-title" class="font-bold text-xs text-slate-800 dark:text-slate-200 block">🚗 Conduite & Soleil</span>
+                    <span id="lens-opt2-desc" class="text-[11px] text-slate-500 block">Verres Photochromiques</span>
+                </button>
+                <button onclick="showLensRecommendation('comfort')" class="p-3 rounded-2xl border border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 hover:border-tiffany text-left transition space-y-1">
+                    <span id="lens-opt3-title" class="font-bold text-xs text-slate-800 dark:text-slate-200 block">✨ Anti-Reflets & Confort</span>
+                    <span id="lens-opt3-desc" class="text-[11px] text-slate-500 block">Traitement HD Ultra-Clair</span>
+                </button>
+            </div>
+            <div id="lens-rec-box" class="hidden p-3 rounded-xl bg-tiffany/10 border border-tiffany/30 text-xs text-slate-700 dark:text-slate-200"></div>
+        </section>
+
+        <!-- Product Filters & Search Section -->
+        <section class="space-y-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <h2 id="catalog-title" class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <i class="fa-solid fa-store text-tiffany-dark dark:text-tiffany"></i> Nos Produits Exclusifs
+                </h2>
+
+                <!-- Live Search Bar -->
+                <div class="relative w-full md:w-64">
+                    <input type="text" id="search-input" oninput="handleSearch()" placeholder="Rechercher..." class="w-full pl-9 pr-4 py-2 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-tiffany">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-400 text-xs"></i>
+                </div>
+                
+                <!-- Category Tabs -->
+                <div class="flex flex-wrap gap-2 justify-center" id="category-tabs">
+                    <button onclick="filterCategory('all')" id="cat-all" class="cat-btn active px-4 py-1.5 rounded-full text-xs font-bold transition bg-tiffany-dark text-white dark:text-slate-900 shadow">Tous</button>
+                    <button onclick="filterCategory('vue')" id="cat-vue" class="cat-btn px-4 py-1.5 rounded-full text-xs font-bold transition bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-tiffany/20 shadow-sm border border-slate-200 dark:border-slate-700">Vue</button>
+                    <button onclick="filterCategory('solaire')" id="cat-solaire" class="cat-btn px-4 py-1.5 rounded-full text-xs font-bold transition bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-tiffany/20 shadow-sm border border-slate-200 dark:border-slate-700">Solaire</button>
+                    <button onclick="filterCategory('lentilles')" id="cat-lentilles" class="cat-btn px-4 py-1.5 rounded-full text-xs font-bold transition bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-tiffany/20 shadow-sm border border-slate-200 dark:border-slate-700">Lentilles</button>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Products loaded dynamically via JS -->
+            </div>
+        </section>
+
+        <!-- Eye Care Tips Section -->
+        <section class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white rounded-3xl p-6 md:p-8 space-y-4 border border-gold/30 shadow-lg">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-eye text-tiffany text-xl"></i>
+                <h2 id="tips-title" class="text-lg font-bold">Conseils & Santé Visuelle Safa Optic</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-slate-300">
+                <div class="p-3 bg-slate-800/80 rounded-2xl border border-slate-700 space-y-1">
+                    <span id="tip1-head" class="font-bold text-tiffany block">Règle 20-20-20</span>
+                    <p id="tip1-text">Toutes les 20 minutes devant un écran, observez un objet à 6 mètres pendant 20 secondes.</p>
+                </div>
+                <div class="p-3 bg-slate-800/80 rounded-2xl border border-slate-700 space-y-1">
+                    <span id="tip2-head" class="font-bold text-tiffany block">Protection UV</span>
+                    <p id="tip2-text">Portez des lunettes solaires certifiées même en temps nuageux pour protéger la rétine.</p>
+                </div>
+                <div class="p-3 bg-slate-800/80 rounded-2xl border border-slate-700 space-y-1">
+                    <span id="tip3-head" class="font-bold text-tiffany block">Hygiène des Lentilles</span>
+                    <p id="tip3-text">Lavez toujours vos mains avant de manipuler vos lentilles de contact.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIP Trust Stats -->
+        <section class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700/80 shadow-sm space-y-1">
+                <i class="fa-solid fa-users text-tiffany text-xl"></i>
+                <span class="block text-xl font-extrabold text-slate-900 dark:text-white">+2,500</span>
+                <span id="stat-clients" class="text-[11px] text-slate-500">Clients Satisfaits</span>
+            </div>
+            <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700/80 shadow-sm space-y-1">
+                <i class="fa-solid fa-glasses text-tiffany text-xl"></i>
+                <span class="block text-xl font-extrabold text-slate-900 dark:text-white">100%</span>
+                <span id="stat-guarantee" class="text-[11px] text-slate-500">Montures Authentiques</span>
+            </div>
+            <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700/80 shadow-sm space-y-1">
+                <i class="fa-solid fa-award text-gold text-xl"></i>
+                <span class="block text-xl font-extrabold text-slate-900 dark:text-white">VIP</span>
+                <span id="stat-service" class="text-[11px] text-slate-500">Service Personnalisé</span>
+            </div>
+            <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700/80 shadow-sm space-y-1">
+                <i class="fa-solid fa-truck-fast text-tiffany text-xl"></i>
+                <span class="block text-xl font-extrabold text-slate-900 dark:text-white">Rapide</span>
+                <span id="stat-delivery" class="text-[11px] text-slate-500">Livraison & Réglage</span>
+            </div>
+        </section>
+
+        <!-- Appointment Form -->
+        <section id="appointment" class="bg-white dark:bg-slate-800/80 rounded-3xl p-6 md:p-8 border border-tiffany/20 shadow-lg space-y-6">
+            <div class="text-center max-w-xl mx-auto space-y-2">
+                <span id="appoint-badge" class="text-tiffany-dark dark:text-tiffany font-bold text-xs uppercase tracking-wider">Service Rapide</span>
+                <h2 id="appoint-title" class="text-2xl font-bold text-slate-900 dark:text-white">Prendre Rendez-vous pour Examen de Vue</h2>
+                <p id="appoint-sub" class="text-slate-500 dark:text-slate-400 text-xs">Réservez votre créneau en ligne, nous vous contacterons immédiatement via WhatsApp pour confirmer.</p>
+            </div>
+
+            <form onsubmit="handleAppointment(event)" class="max-w-xl mx-auto space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label id="label-fullname" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Nom Complet</label>
+                        <input type="text" id="app-name" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-tiffany">
+                    </div>
+                    <div>
+                        <label id="label-phone" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Numéro de Téléphone</label>
+                        <input type="tel" id="app-phone" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-tiffany" placeholder="06.99.79.90.00">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label id="label-date" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Date Souhaitée</label>
+                        <input type="date" id="app-date" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-tiffany">
+                    </div>
+                    <div>
+                        <label id="label-time" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Heure Préférée</label>
+                        <select id="app-time" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-tiffany">
+                            <option value="Matin (09h - 13h)">Matin (09h - 13h)</option>
+                            <option value="Après-Midi (15h - 19h)">Après-Midi (15h - 19h)</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-sm">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> <span id="btn-submit-appoint">Confirmer via WhatsApp</span>
+                </button>
+            </form>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="space-y-4 text-center">
+            <h2 id="testimonials-title" class="text-xl font-bold text-slate-900 dark:text-white">Avis de nos Clients VIP PREMIUM</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-2">
+                    <div class="text-amber-400 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p id="testi-1" class="text-xs text-slate-600 dark:text-slate-300 italic">"Service très professionnel et accueil chaleureux à Azli. Mes lunettes sont magnifiques !"</p>
+                    <span class="block text-[11px] font-bold text-tiffany-dark dark:text-tiffany">— Amina M.</span>
+                </div>
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-2">
+                    <div class="text-amber-400 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p id="testi-2" class="text-xs text-slate-600 dark:text-slate-300 italic">"Excellente qualité de lentilles et livraison rapide à domicile. Je recommande Safa Optic !"</p>
+                    <span class="block text-[11px] font-bold text-tiffany-dark dark:text-tiffany">— Youssef K.</span>
+                </div>
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-2">
+                    <div class="text-amber-400 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p id="testi-3" class="text-xs text-slate-600 dark:text-slate-300 italic">"Très bon rapport qualité-prix et examen de vue très précis. Merci à l'équipe."</p>
+                    <span class="block text-[11px] font-bold text-tiffany-dark dark:text-tiffany">— Sarah B.</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer & Address Section -->
+    <footer class="mt-auto bg-slate-900 text-slate-300 pt-10 pb-6 border-t border-tiffany/20">
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 text-center md:text-left">
+            
+            <!-- Brand Info -->
+            <div class="space-y-3">
+                <div class="flex items-center justify-center md:justify-start gap-2">
+                    <i class="fa-solid fa-glasses text-tiffany text-2xl"></i>
+                    <span class="text-2xl font-black text-white">Safa <span class="text-tiffany">Optic</span></span>
+                </div>
+                <p id="footer-desc" class="text-xs text-slate-400">
+                    Votre opticien de confiance. Qualité, précision et élégance pour le bien-être de vos yeux.
+                </p>
+            </div>
+
+            <!-- Direct Actions -->
+            <div class="space-y-3 flex flex-col items-center md:items-start">
+                <h3 id="footer-contact-title" class="text-sm font-bold text-white uppercase tracking-wider">Contact Rapide</h3>
+                <a href="tel:0699799000" class="flex items-center gap-2 text-xs hover:text-tiffany transition">
+                    <i class="fa-solid fa-phone text-tiffany"></i> 06.99.79.90.00
+                </a>
+                <a href="#" onclick="openGeneralWhatsApp(event)" class="flex items-center gap-2 text-xs text-emerald-400 hover:text-emerald-300 transition">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> <span id="whatsapp-direct-txt">WhatsApp VIP Direct</span>
+                </a>
+            </div>
+
+            <!-- Opening Hours Section -->
+            <div class="space-y-3 flex flex-col items-center md:items-start">
+                <h3 id="footer-hours-title" class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                    <i class="fa-solid fa-clock text-tiffany"></i> Horaires d'ouverture
+                </h3>
+                <div class="text-xs text-slate-400 space-y-1 w-full max-w-xs">
+                    <div class="flex justify-between border-b border-slate-800 pb-1">
+                        <span id="hours-mon-fri">Lundi - Vendredi :</span>
+                        <span class="font-bold text-slate-200">09h00 - 13h00</span>
+                    </div>
+                    <div class="flex justify-between border-b border-slate-800 pb-1">
+                        <span id="hours-sat">Samedi :</span>
+                        <span class="font-bold text-slate-200">09h00 - 13h00</span>
+                    </div>
+                    <div class="flex justify-between text-rose-400 pt-0.5">
+                        <span id="hours-sun">Dimanche :</span>
+                        <span id="hours-sun-val" class="font-bold">Fermé</span>
+                    </div>
+                </div>
+                <!-- Status Badge -->
+                <div id="store-status" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 mt-1">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span id="status-text">Ouvert Actuellement</span>
+                </div>
+            </div>
+
+            <!-- Address & GPS -->
+            <div class="space-y-3 flex flex-col items-center md:items-start">
+                <h3 id="footer-address-title" class="text-sm font-bold text-white uppercase tracking-wider">Notre Adresse</h3>
+                <p id="footer-address-text" class="text-xs text-slate-400 leading-relaxed">
+                    Azli Sud 1 à côté de mosquée Imam Malik et le terminus de bus 14.
+                </p>
+                <a href="https://maps.google.com/?q=azli+sud+1+mosquée+imam+malik+marrakech" target="_blank" class="inline-flex items-center gap-2 bg-tiffany/10 border border-tiffany/30 hover:bg-tiffany/20 text-tiffany px-4 py-2 rounded-xl text-xs font-bold transition">
+                    <i class="fa-solid fa-location-dot"></i> <span id="btn-gps">Localisation GPS</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-4 pt-6 border-t border-slate-800 text-center text-xs text-slate-500">
+            &copy; <span id="year"></span> Safa Optic VIP PREMIUM. <span id="rights-text">Tous droits réservés.</span>
+        </div>
+    </footer>
+
+    <!-- QR Codes Display Modal -->
+    <div id="qr-modal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 max-w-md w-full border border-tiffany/30 shadow-2xl space-y-6">
+            <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-3">
+                <h3 id="qr-modal-title" class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <i class="fa-solid fa-qrcode text-tiffany-dark dark:text-tiffany"></i> Flash QR Codes Safa Optic
+                </h3>
+                <button onclick="closeQrModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-white">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-center">
+                <!-- QR Code Website -->
+                <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex flex-col items-center space-y-2">
+                    <span id="qr-site-title" class="font-bold text-xs text-slate-800 dark:text-slate-200">Site Web</span>
+                    <img id="qr-site-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://safa-optic.com" alt="QR Website" class="w-32 h-32 rounded-xl border border-slate-300 dark:border-slate-600">
+                    <span id="qr-site-sub" class="text-[10px] text-slate-500">Scannez pour visiter</span>
+                </div>
+
+                <!-- QR Code Mobile App -->
+                <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex flex-col items-center space-y-2">
+                    <span id="qr-app-title" class="font-bold text-xs text-slate-800 dark:text-slate-200">Application App</span>
+                    <img id="qr-app-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://safa-optic.com/download-app" alt="QR App" class="w-32 h-32 rounded-xl border border-slate-300 dark:border-slate-600">
+                    <span id="qr-app-sub" class="text-[10px] text-slate-500">Scannez pour télécharger</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 p-3 rounded-full bg-tiffany-dark text-white shadow-lg hover:bg-tiffany transition z-30 flex items-center justify-center text-sm border border-white/20">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Admin Auth Modal -->
+    <div id="admin-modal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 max-w-sm w-full border border-tiffany/30 shadow-2xl space-y-4">
+            <div class="flex justify-between items-center">
+                <h3 id="admin-login-title" class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <i class="fa-solid fa-lock text-gold"></i> Espace Admin
+                </h3>
+                <button onclick="closeAdminModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-white">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            
+            <div class="space-y-3">
+                <label id="admin-pass-label" class="block text-xs font-semibold text-slate-600 dark:text-slate-300">Code PIN Sécurisé</label>
+                <input type="password" id="admin-pin" placeholder="••••" maxlength="4" class="w-full text-center text-2xl tracking-widest px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-tiffany">
+                <p id="admin-error" class="text-rose-500 text-xs text-center hidden">Code PIN incorrect!</p>
+            </div>
+
+            <button onclick="verifyAdmin()" id="admin-btn-val" class="w-full bg-slate-900 dark:bg-slate-800 text-gold font-bold py-2.5 rounded-xl hover:bg-slate-800 border border-gold/30 transition text-sm">
+                Valider
+            </button>
+        </div>
+    </div>
+
+    <!-- Admin Panel Modal -->
+    <div id="admin-panel" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 max-w-2xl w-full border border-tiffany/30 shadow-2xl space-y-6 my-8">
+            <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-4">
+                <h3 id="admin-panel-title" class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <i class="fa-solid fa-sliders text-tiffany-dark dark:text-tiffany"></i> Gestion des Produits (Admin)
+                </h3>
+                <button onclick="closeAdminPanel()" class="text-slate-400 hover:text-slate-600 dark:hover:text-white">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Add Product Form -->
+            <form onsubmit="handleAddProduct(event)" class="space-y-4 bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl border border-slate-200 dark:border-slate-700">
+                <h4 id="admin-add-title" class="text-sm font-bold text-slate-800 dark:text-slate-200">Ajouter un nouveau produit</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <input type="text" id="prod-title" placeholder="Nom du produit" required class="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs text-slate-900 dark:text-white">
+                    <input type="text" id="prod-price" placeholder="Prix (ex: 450 DH)" required class="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs text-slate-900 dark:text-white">
+                    <select id="prod-cat" class="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs text-slate-900 dark:text-white">
+                        <option value="vue">Lunettes de Vue</option>
+                        <option value="solaire">Lunettes Solaires</option>
+                        <option value="lentilles">Lentilles de Couleur</option>
+                    </select>
+                    <input type="url" id="prod-img" placeholder="URL de l'image" required class="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs text-slate-900 dark:text-white">
+                </div>
+                <button type="submit" id="admin-add-btn" class="bg-tiffany-dark hover:bg-tiffany text-white dark:text-slate-900 font-bold px-4 py-2 rounded-lg text-xs transition">
+                    + Ajouter le produit
+                </button>
+            </form>
+
+            <!-- Product Management List -->
+            <div class="space-y-3">
+                <h4 id="admin-list-title" class="text-sm font-bold text-slate-800 dark:text-slate-200">Liste des produits existants</h4>
+                <div id="admin-products-list" class="space-y-2 max-h-60 overflow-y-auto pr-2">
+                    <!-- Dynamic product list -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 bg-slate-950/90 z-50 hidden flex items-center justify-center p-4" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" class="max-w-full max-h-[85vh] rounded-2xl shadow-2xl border border-white/20 object-contain">
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Default Products Data
+        const initialProducts = [
+            {
+                id: 1,
+                title: 'Monture Vue Elegance VIP',
+                price: '450 DH',
+                category: 'vue',
+                image: 'https://images.unsplash.com/photo-1591076482161-42ce6da69f67?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 2,
+                title: 'Lunettes Solaires Trend 2026',
+                price: '650 DH',
+                category: 'solaire',
+                image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 3,
+                title: 'Lentilles de Couleur Premium',
+                price: '280 DH',
+                category: 'lentilles',
+                image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=600&q=80'
+            }
+        ];
+
+        // State
+        let products = JSON.parse(localStorage.getItem('safa_products')) || initialProducts;
+        let currentLang = 'fr';
+        let currentCategory = 'all';
+        let searchQuery = '';
+
+        // Translation Dictionary
+        const translations = {
+            fr: {
+                welcomeBadge: "Bienvenue chez Safa Optic",
+                heroTitle: "Votre vision mérite l'excellence & le style VIP PREMIUM",
+                heroSubtitle: "Découvrez nos collections exclusives de lunettes de vue, solaires et lentilles de haute qualité avec un service personnalisé.",
+                btnBookHero: "Prendre Rendez-vous",
+                lensGuideTitle: "Guide de Choix des Verres",
+                lensGuideSub: "Sélectionnez votre besoin pour trouver les verres idéaux :",
+                opt1Title: "🖥️ Écrans & Ordinateur",
+                opt1Desc: "Anti-Lumière Bleue Premium",
+                opt2Title: "🚗 Conduite & Soleil",
+                opt2Desc: "Verres Photochromiques",
+                opt3Title: "✨ Anti-Reflets & Confort",
+                opt3Desc: "Traitement HD Ultra-Clair",
+                catalogTitle: "Nos Produits Exclusifs",
+                searchPlaceholder: "Rechercher...",
+                catAll: "Tous",
+                catVue: "Vue",
+                catSolaire: "Solaire",
+                catLentilles: "Lentilles",
+                tipsTitle: "Conseils & Santé Visuelle Safa Optic",
+                tip1Head: "Règle 20-20-20",
+                tip1Text: "Toutes les 20 minutes devant un écran, observez un objet à 6 mètres pendant 20 secondes.",
+                tip2Head: "Protection UV",
+                tip2Text: "Portez des lunettes solaires certifiées même en temps nuageux pour protéger la rétine.",
+                tip3Head: "Hygiène des Lentilles",
+                tip3Text: "Lavez toujours vos mains avant de manipuler vos lentilles de contact.",
+                statClients: "Clients Satisfaits",
+                statGuarantee: "Montures Authentiques",
+                statService: "Service Personnalisé",
+                statDelivery: "Livraison & Réglage",
+                appointBadge: "Service Rapide",
+                appointTitle: "Prendre Rendez-vous pour Examen de Vue",
+                appointSub: "Réservez votre créneau en ligne, nous vous contacterons immédiatement via WhatsApp pour confirmer.",
+                lblFullname: "Nom Complet",
+                lblPhone: "Numéro de Téléphone",
+                lblDate: "Date Souhaitée",
+                lblTime: "Heure Préférée",
+                timeOpt1: "Matin (09h - 13h)",
+                timeOpt2: "Après-Midi (15h - 19h)",
+                btnSubmitAppoint: "Confirmer via WhatsApp",
+                testimonialsTitle: "Avis de nos Clients VIP PREMIUM",
+                testi1: "\"Service très professionnel et accueil chaleureux à Azli. Mes lunettes sont magnifiques !\"",
+                testi2: "\"Excellente qualité de lentilles et livraison rapide à domicile. Je recommande Safa Optic !\"",
+                testi3: "\"Très bon rapport qualité-prix et examen de vue très précis. Merci à l'équipe.\"",
+                footerDesc: "Votre opticien de confiance. Qualité, précision et élégance pour le bien-être de vos yeux.",
+                footerContactTitle: "Contact Rapide",
+                whatsappDirect: "WhatsApp VIP Direct",
+                footerHoursTitle: "Horaires d'ouverture",
+                hoursMonFri: "Lundi - Vendredi :",
+                hoursSat: "Samedi :",
+                hoursSun: "Dimanche :",
+                closed: "Fermé",
+                statusOpen: "Ouvert Actuellement",
+                statusClosed: "Fermé Actuellement",
+                footerAddressTitle: "Notre Adresse",
+                footerAddressText: "Azli Sud 1 à côté de mosquée Imam Malik et le terminus de bus 14.",
+                btnGps: "Localisation GPS",
+                rightsText: "Tous droits réservés.",
+                btnLangText: "AR",
+                orderWhatsapp: "Commander via WhatsApp",
+                msgGeneral: "Bonjour Safa Optic VIP, je souhaite avoir plus d'informations sur vos services.",
+                msgOrderPrefix: "Bonjour Safa Optic, je souhaite commander le produit : ",
+                msgAppointPrefix: "Bonjour Safa Optic, je souhaite réserver un rendez-vous pour examen de vue.\n- Nom : ",
+                msgDate: "\n- Date : ",
+                msgTime: "\n- Heure : ",
+                msgPhone: "\n- Tél : ",
+                adminLoginTitle: "Espace Admin",
+                adminPassLabel: "Code PIN Sécurisé",
+                adminBtnVal: "Valider",
+                adminPanelTitle: "Gestion des Produits (Admin)",
+                adminAddTitle: "Ajouter un nouveau produit",
+                adminAddBtn: "+ Ajouter le produit",
+                adminListTitle: "Liste des produits existants",
+                prodTitlePlaceholder: "Nom du produit",
+                prodPricePlaceholder: "Prix (ex: 450 DH)",
+                prodImgPlaceholder: "URL de l'image",
+                qrModalTitle: "Flash QR Codes Safa Optic",
+                qrSiteTitle: "Site Web Officiel",
+                qrSiteSub: "Scannez pour visiter",
+                qrAppTitle: "Application Mobile",
+                qrAppSub: "Scannez pour télécharger"
+            },
+            ar: {
+                welcomeBadge: "مرحباً بكم في Safa Optic",
+                heroTitle: "رؤيتك تستحق الأناقة والتميز والخدمة VIP PREMIUM",
+                heroSubtitle: "اكتشف مجموعتنا الحصرية من النظارات الطبية، الشمسية والعدسات اللاصقة عالية الجودة مع خدمة مخصصة.",
+                btnBookHero: "حجز موعد الآن",
+                lensGuideTitle: "دليل اختيار العدسات المناسبة",
+                lensGuideSub: "حدد احتياجك اليومي لمعرفة نوع العدسات الأفضل لعينيك:",
+                opt1Title: "🖥️ الشاشات والكمبيوتر",
+                opt1Desc: "حماية فائقة من الضوء الأزرق",
+                opt2Title: "🚗 القيادة وأشعة الشمس",
+                opt2Desc: "عدسات متلونة تلقائياً Photochromique",
+                opt3Title: "✨ مضادة للانعكاس والراحة",
+                opt3Desc: "معالجة عالية الدقة HD",
+                catalogTitle: "منتجاتنا الحصرية",
+                searchPlaceholder: "بحث عن منتج...",
+                catAll: "الكل",
+                catVue: "طبية",
+                catSolaire: "شمسية",
+                catLentilles: "عدسات",
+                tipsTitle: "نصائح صحة العين من Safa Optic",
+                tip1Head: "قاعدة 20-20-20",
+                tip1Text: "كل 20 دقيقة أمام الشاشة، انظر إلى شيء يبعد 6 أمتار لمدة 20 ثانية.",
+                tip2Head: "حماية الأشعة فوق البنفسجية",
+                tip2Text: "ارتدِ نظارات شمسية معتمدة حتى في الأيام الغائمة لحماية شبكية العين.",
+                tip3Head: "نظافة العدسات اللاصقة",
+                tip3Text: "اغسل يديك جيداً دائماً قبل التعامل مع عدساتك اللاصقة.",
+                statClients: "زبون سعيد",
+                statGuarantee: "إطارات أصلية 100%",
+                statService: "خدمة VIP مخصصة",
+                statDelivery: "توصيل وتعديل سريع",
+                appointBadge: "خدمة سريعة",
+                appointTitle: "حجز موعد لفحص النظر",
+                appointSub: "احجز موعدك بسهولة عبر الإنترنت، وسنتواصل معك فوراً عبر الواتساب للتأكيد.",
+                lblFullname: "الاسم الكامل",
+                lblPhone: "رقم الهاتف",
+                lblDate: "التاريخ المطلوب",
+                lblTime: "الوقت المفضل",
+                timeOpt1: "الصباح (09h - 13h)",
+                timeOpt2: "المساء (15h - 19h)",
+                btnSubmitAppoint: "تأكيد الموعد عبر الواتساب",
+                testimonialsTitle: "آراء زبنائنا الكرام VIP PREMIUM",
+                testi1: "\"خدمة احترافية للغاية واستقبال دافئ في أزلي. نظاراتي رائعة جداً!\"",
+                testi2: "\"جودة ممتازة للعدسات وتوصيل سريع حتى باب البيت. أنصح بشدة بـ Safa Optic!\"",
+                testi3: "\"قيمة ممتازة مقابل السعر وفحص نظر دقيق للغاية. شكراً للفريق.\"",
+                footerDesc: "محلكم الموثوق للنظارات. الجودة، الدقة والأناقة لرعاية عينيك.",
+                footerContactTitle: "تواصل سريع",
+                whatsappDirect: "واتساب VIP مباشر",
+                footerHoursTitle: "أوقات العمل",
+                hoursMonFri: "الإثنين - الجمعة :",
+                hoursSat: "السبت :",
+                hoursSun: "الأحد :",
+                closed: "مغلق",
+                statusOpen: "مفتوح الآن",
+                statusClosed: "مغلق الآن",
+                footerAddressTitle: "عنوان المحل",
+                footerAddressText: "ازلي الجنوبي 1 بالقرب من مسجد الإمام مالك و محطة الحافلة رقم 14.",
+                btnGps: "موقع GPS مباشر",
+                rightsText: "جميع الحقوق محفوظة.",
+                btnLangText: "FR",
+                orderWhatsapp: "طلب عبر الواتساب",
+                msgGeneral: "مرحباً Safa Optic VIP، أود الاستفسار عن خدماتكم والمنتجات المتوفرة.",
+                msgOrderPrefix: "مرحباً Safa Optic، أود طلب المنتج التالي: ",
+                msgAppointPrefix: "مرحباً Safa Optic، أود حجز موعد لفحص النظر:\n- الاسم: ",
+                msgDate: "\n- التاريخ: ",
+                msgTime: "\n- الوقت: ",
+                msgPhone: "\n- الهاتف: ",
+                adminLoginTitle: "لوحة الأدمن",
+                adminPassLabel: "رمز PIN السري",
+                adminBtnVal: "تحقق",
+                adminPanelTitle: "إدارة المنتجات (الأدمن)",
+                adminAddTitle: "إضافة منتج جديد",
+                adminAddBtn: "+ إضافة المنتج",
+                adminListTitle: "قائمة المنتجات الحالية",
+                prodTitlePlaceholder: "اسم المنتج",
+                prodPricePlaceholder: "السعر (مثال: 450 DH)",
+                prodImgPlaceholder: "رابط الصورة",
+                qrModalTitle: "رموز QR الخاصة بـ Safa Optic",
+                qrSiteTitle: "الموقع الإلكتروني",
+                qrSiteSub: "امسح للتصفح",
+                qrAppTitle: "تطبيق الهاتف",
+                qrAppSub: "امسح للتحميل"
+            }
+        };
+
+        // Initialize App
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            updateLanguageUI();
+            checkStoreStatus();
+        });
+
+        // Store Opening Status Check
+        function checkStoreStatus() {
+            const now = new Date();
+            const day = now.getDay();
+            const hour = now.getHours();
+
+            const statusEl = document.getElementById('store-status');
+            const statusText = document.getElementById('status-text');
+
+            if (day !== 0 && hour >= 9 && hour < 19) {
+                statusEl.className = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 mt-1";
+                statusText.textContent = translations[currentLang].statusOpen;
+            } else {
+                statusEl.className = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-rose-500/10 text-rose-400 border border-rose-500/30 mt-1";
+                statusText.textContent = translations[currentLang].statusClosed;
+            }
+        }
+
+        // Live Search
+        function handleSearch() {
+            searchQuery = document.getElementById('search-input').value.toLowerCase();
+            renderProducts();
+        }
+
+        // Lens Guide Recommendation
+        function showLensRecommendation(type) {
+            const box = document.getElementById('lens-rec-box');
+            box.classList.remove('hidden');
+            if (type === 'blue') {
+                box.innerHTML = currentLang === 'fr' 
+                    ? "💡 <b>Verres recommandés :</b> Verres Anti-Lumière Bleue BlueControl. Ils filtrent les rayons nocifs des écrans et réduisent la fatigue visuelle." 
+                    : "💡 <b>العدسات المقترحة:</b> عدسات حماية الشاشات BlueControl لتصفية الضوء الأزرق وتقليل إجهاد العينين.";
+            } else if (type === 'drive') {
+                box.innerHTML = currentLang === 'fr' 
+                    ? "💡 <b>Verres recommandés :</b> Verres Photochromiques Transitions. Ils s'assombrissent au soleil et redeviennent clairs à l'intérieur." 
+                    : "💡 <b>العدسات المقترحة:</b> العدسات الملونة تلقائياً (Photochromique) تتكيف مع درجة أشعة الشمس والقيادة.";
+            } else {
+                box.innerHTML = currentLang === 'fr' 
+                    ? "💡 <b>Verres recommandés :</b> Verres Anti-Reflets Haute Définition. Offrent une transparence maximale et évitent les éblouissements." 
+                    : "💡 <b>العدسات المقترحة:</b> عدسات مضادة للانعكاس عالي الدقة (Anti-Reflet HD) لرؤية نقية ومريحة جداً.";
+            }
+        }
+
+        // Render Cards
+        function renderProducts() {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+
+            let filtered = currentCategory === 'all' 
+                ? products 
+                : products.filter(p => p.category === currentCategory);
+
+            if (searchQuery) {
+                filtered = filtered.filter(p => p.title.toLowerCase().includes(searchQuery));
+            }
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<p class="col-span-full text-center text-slate-400 py-8 text-xs">${currentLang === 'fr' ? 'Aucun produit trouvé.' : 'لا توجد منتجات مطابقة.'}</p>`;
+                return;
+            }
+
+            filtered.forEach(p => {
+                const card = document.createElement('div');
+                card.className = "bg-white dark:bg-slate-800/90 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700/80 shadow-md hover:shadow-xl hover:border-tiffany/50 transition-all duration-300 flex flex-col group";
+                card.innerHTML = `
+                    <div class="relative overflow-hidden aspect-video bg-slate-100 dark:bg-slate-900 cursor-pointer" onclick="openLightbox('${p.image}')">
+                        <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-2 right-2 bg-slate-900/80 text-gold text-[10px] font-bold px-2 py-0.5 rounded-full border border-gold/30">
+                            VIP PREMIUM
+                        </span>
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col justify-between space-y-3">
+                        <div>
+                            <h3 class="font-bold text-slate-900 dark:text-white text-sm group-hover:text-tiffany-dark dark:group-hover:text-tiffany transition">${p.title}</h3>
+                            <span class="text-tiffany-dark dark:text-tiffany font-extrabold text-base block mt-1">${p.price}</span>
+                        </div>
+                        <button onclick="orderProduct('${p.title}', '${p.price}')" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 rounded-xl text-xs flex items-center justify-center gap-2 transition shadow-sm">
+                            <i class="fa-brands fa-whatsapp text-sm"></i> ${translations[currentLang].orderWhatsapp}
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // WhatsApp Direct Handlers
+        function orderProduct(title, price) {
+            const phone = "212699799000";
+            const text = `${translations[currentLang].msgOrderPrefix} *${title}* (${price})`;
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        function openGeneralWhatsApp(e) {
+            e.preventDefault();
+            const phone = "212699799000";
+            const text = translations[currentLang].msgGeneral;
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        function handleAppointment(e) {
+            e.preventDefault();
+            const name = document.getElementById('app-name').value;
+            const userPhone = document.getElementById('app-phone').value;
+            const date = document.getElementById('app-date').value;
+            const time = document.getElementById('app-time').value;
+
+            const targetPhone = "212699799000";
+            const text = `${translations[currentLang].msgAppointPrefix}${name}${translations[currentLang].msgPhone}${userPhone}${translations[currentLang].msgDate}${date}${translations[currentLang].msgTime}${time}`;
+            
+            window.open(`https://wa.me/${targetPhone}?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        // Modal QR Functions
+        function openQrModal() {
+            document.getElementById('qr-modal').classList.remove('hidden');
+        }
+        function closeQrModal() {
+            document.getElementById('qr-modal').classList.add('hidden');
+        }
+
+        // Language Switcher
+        function toggleLanguage() {
+            currentLang = currentLang === 'fr' ? 'ar' : 'fr';
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = currentLang;
+            updateLanguageUI();
+            renderProducts();
+            checkStoreStatus();
+        }
+
+        function updateLanguageUI() {
+            const t = translations[currentLang];
+            document.getElementById('welcome-badge').innerHTML = `<i class="fa-solid fa-gem text-amber-500 mr-1"></i> ${t.welcomeBadge}`;
+            document.getElementById('hero-title').textContent = t.heroTitle;
+            document.getElementById('hero-subtitle').textContent = t.heroSubtitle;
+            document.getElementById('btn-book-hero').textContent = t.btnBookHero;
+            document.getElementById('lens-guide-title').textContent = t.lensGuideTitle;
+            document.getElementById('lens-guide-sub').textContent = t.lensGuideSub;
+            document.getElementById('lens-opt1-title').textContent = t.opt1Title;
+            document.getElementById('lens-opt1-desc').textContent = t.opt1Desc;
+            document.getElementById('lens-opt2-title').textContent = t.opt2Title;
+            document.getElementById('lens-opt2-desc').textContent = t.opt2Desc;
+            document.getElementById('lens-opt3-title').textContent = t.opt3Title;
+            document.getElementById('lens-opt3-desc').textContent = t.opt3Desc;
+            document.getElementById('catalog-title').innerHTML = `<i class="fa-solid fa-store text-tiffany-dark dark:text-tiffany"></i> ${t.catalogTitle}`;
+            document.getElementById('search-input').placeholder = t.searchPlaceholder;
+            document.getElementById('cat-all').textContent = t.catAll;
+            document.getElementById('cat-vue').textContent = t.catVue;
+            document.getElementById('cat-solaire').textContent = t.catSolaire;
+            document.getElementById('cat-lentilles').textContent = t.catLentilles;
+            document.getElementById('tips-title').textContent = t.tipsTitle;
+            document.getElementById('tip1-head').textContent = t.tip1Head;
+            document.getElementById('tip1-text').textContent = t.tip1Text;
+            document.getElementById('tip2-head').textContent = t.tip2Head;
+            document.getElementById('tip2-text').textContent = t.tip2Text;
+            document.getElementById('tip3-head').textContent = t.tip3Head;
+            document.getElementById('tip3-text').textContent = t.tip3Text;
+            document.getElementById('stat-clients').textContent = t.statClients;
+            document.getElementById('stat-guarantee').textContent = t.statGuarantee;
+            document.getElementById('stat-service').textContent = t.statService;
+            document.getElementById('stat-delivery').textContent = t.statDelivery;
+            document.getElementById('appoint-badge').textContent = t.appointBadge;
+            document.getElementById('appoint-title').textContent = t.appointTitle;
+            document.getElementById('appoint-sub').textContent = t.appointSub;
+            document.getElementById('label-fullname').textContent = t.lblFullname;
+            document.getElementById('label-phone').textContent = t.lblPhone;
+            document.getElementById('label-date').textContent = t.lblDate;
+            document.getElementById('label-time').textContent = t.lblTime;
+            document.getElementById('btn-submit-appoint').textContent = t.btnSubmitAppoint;
+            document.getElementById('testimonials-title').textContent = t.testimonialsTitle;
+            document.getElementById('testi-1').textContent = t.testi1;
+            document.getElementById('testi-2').textContent = t.testi2;
+            document.getElementById('testi-3').textContent = t.testi3;
+            document.getElementById('footer-desc').textContent = t.footerDesc;
+            document.getElementById('footer-contact-title').textContent = t.footerContactTitle;
+            document.getElementById('whatsapp-direct-txt').textContent = t.whatsappDirect;
+            document.getElementById('footer-hours-title').innerHTML = `<i class="fa-solid fa-clock text-tiffany"></i> ${t.footerHoursTitle}`;
+            document.getElementById('hours-mon-fri').textContent = t.hoursMonFri;
+            document.getElementById('hours-sat').textContent = t.hoursSat;
+            document.getElementById('hours-sun').textContent = t.hoursSun;
+            document.getElementById('hours-sun-val').textContent = t.closed;
+            document.getElementById('footer-address-title').textContent = t.footerAddressTitle;
+            document.getElementById('footer-address-text').textContent = t.footerAddressText;
+            document.getElementById('btn-gps').textContent = t.btnGps;
+            document.getElementById('rights-text').textContent = t.rightsText;
+            document.getElementById('lang-btn-text').textContent = t.btnLangText;
+            document.getElementById('admin-login-title').innerHTML = `<i class="fa-solid fa-lock text-gold"></i> ${t.adminLoginTitle}`;
+            document.getElementById('admin-pass-label').textContent = t.adminPassLabel;
+            document.getElementById('admin-btn-val').textContent = t.adminBtnVal;
+            document.getElementById('admin-panel-title').innerHTML = `<i class="fa-solid fa-sliders text-tiffany-dark dark:text-tiffany"></i> ${t.adminPanelTitle}`;
+            document.getElementById('admin-add-title').textContent = t.adminAddTitle;
+            document.getElementById('admin-add-btn').textContent = t.adminAddBtn;
+            document.getElementById('admin-list-title').textContent = t.adminListTitle;
+            document.getElementById('prod-title').placeholder = t.prodTitlePlaceholder;
+            document.getElementById('prod-price').placeholder = t.prodPricePlaceholder;
+            document.getElementById('prod-img').placeholder = t.prodImgPlaceholder;
+            document.getElementById('qr-modal-title').innerHTML = `<i class="fa-solid fa-qrcode text-tiffany-dark dark:text-tiffany"></i> ${t.qrModalTitle}`;
+            document.getElementById('qr-site-title').textContent = t.qrSiteTitle;
+            document.getElementById('qr-site-sub').textContent = t.qrSiteSub;
+            document.getElementById('qr-app-title').textContent = t.qrAppTitle;
+            document.getElementById('qr-app-sub').textContent = t.qrAppSub;
+
+            const timeSelect = document.getElementById('app-time');
+            timeSelect.options[0].text = t.timeOpt1;
+            timeSelect.options[1].text = t.timeOpt2;
+        }
+
+        // Dark Mode Switcher
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                icon.className = 'fa-solid fa-moon text-base';
+            } else {
+                html.classList.add('dark');
+                icon.className = 'fa-solid fa-sun text-base text-amber-400';
+            }
+        }
+
+        // Category Filter
+        function filterCategory(cat) {
+            currentCategory = cat;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.className = "cat-btn px-4 py-1.5 rounded-full text-xs font-bold transition bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-tiffany/20 shadow-sm border border-slate-200 dark:border-slate-700";
+            });
+            event.target.className = "cat-btn active px-4 py-1.5 rounded-full text-xs font-bold transition bg-tiffany-dark text-white dark:text-slate-900 shadow";
+            renderProducts();
+        }
+
+        // Admin Modal Controls
+        function openAdminModal() {
+            document.getElementById('admin-modal').classList.remove('hidden');
+            document.getElementById('admin-pin').value = '';
+            document.getElementById('admin-error').classList.add('hidden');
+        }
+
+        function closeAdminModal() {
+            document.getElementById('admin-modal').classList.add('hidden');
+        }
+
+        function verifyAdmin() {
+            const pin = document.getElementById('admin-pin').value;
+            if (pin === '1234') {
+                closeAdminModal();
+                openAdminPanel();
+            } else {
+                document.getElementById('admin-error').classList.remove('hidden');
+            }
+        }
+
+        function openAdminPanel() {
+            document.getElementById('admin-panel').classList.remove('hidden');
+            renderAdminProductList();
+        }
+
+        function closeAdminPanel() {
+            document.getElementById('admin-panel').classList.add('hidden');
+        }
+
+        function renderAdminProductList() {
+            const list = document.getElementById('admin-products-list');
+            list.innerHTML = '';
+            products.forEach(p => {
+                const item = document.createElement('div');
+                item.className = "flex items-center justify-between p-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs";
+                item.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <img src="${p.image}" class="w-10 h-10 object-cover rounded-lg">
+                        <div>
+                            <p class="font-bold text-slate-900 dark:text-white">${p.title}</p>
+                            <span class="text-tiffany-dark dark:text-tiffany">${p.price}</span>
+                        </div>
+                    </div>
+                    <button onclick="deleteProduct(${p.id})" class="text-rose-500 hover:text-rose-700 p-2">
+                        <i class="fa-solid fa-trash-can text-base"></i>
+                    </button>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        function handleAddProduct(e) {
+            e.preventDefault();
+            const newProd = {
+                id: Date.now(),
+                title: document.getElementById('prod-title').value,
+                price: document.getElementById('prod-price').value,
+                category: document.getElementById('prod-cat').value,
+                image: document.getElementById('prod-img').value
+            };
+            products.push(newProd);
+            saveProducts();
+            renderProducts();
+            renderAdminProductList();
+            e.target.reset();
+        }
+
+        function deleteProduct(id) {
+            products = products.filter(p => p.id !== id);
+            saveProducts();
+            renderProducts();
+            renderAdminProductList();
+        }
+
+        function saveProducts() {
+            localStorage.setItem('safa_products', JSON.stringify(products));
+        }
+
+        // Lightbox Functions
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
+
